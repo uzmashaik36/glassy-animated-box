@@ -1,0 +1,120 @@
+ body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffbf34, #0B1D51);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-wrapper {
+      position: relative;
+      width: 370px;
+      z-index: 1;
+    }
+
+    /* 💡 Glowing circles just beneath the card */
+    .card-wrapper::before,
+    .card-wrapper::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.33), transparent);
+      z-index: 0;
+      box-shadow: 0 0 40px 15px rgba(255, 255, 255, 0.2);
+      animation: pulse 4s infinite ease-in-out;
+    }
+
+    .card-wrapper::before {
+      top: -15px;
+      left: -15px;
+    }
+
+    .card-wrapper::after {
+      bottom: -15px;
+      right: -15px;
+    }
+
+    .circle-bl, .circle-tr {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(2, 1, 49, 0.132), transparent);
+      z-index: 0;
+      box-shadow: 0 0 40px 15px rgba(255, 255, 255, 0.2);
+      animation: pulse 4s infinite ease-in-out;
+    }
+
+    .circle-bl {
+      bottom: -15px;
+      left: -15px;
+    }
+
+    .circle-tr {
+      top: -15px;
+      right: -15px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+
+    .container {
+      position: relative;
+      padding: 40px 40px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      animation: floaty 5s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    button {
+      background: #0e044b;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ffbf34b5;
+      transform: scale(1.05);
+    }
+
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: 600;
+    }
